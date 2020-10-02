@@ -94,3 +94,41 @@
 // }
 
 // console.log(i); // Error
+
+// **************** Declaración de funciones en ciclos ****************
+// var funciones = [];
+
+// for (var i = 0; i < 10; i++) {
+//     funciones.push(() => {
+//         console.log(i);
+//     });
+// }
+
+// funciones.forEach(function(func) {
+//     func(); // Todos imprimen 10
+// });
+
+var funciones = [];
+
+for (let i = 0; i < 10; i++) {
+    funciones.push(() => {
+        console.log(i);
+    });
+}
+
+funciones.forEach(function(func) {
+    func(); // Imprimen el valor de i en el momento que fue creado el método
+});
+
+// Lo anterior se haría en ES5 de la siguiente forma
+// var funciones = [];
+
+// for (let i = 0; i < 10; i++) {
+//     funciones.push(((valor) => function() {
+//         console.log(valor);
+//     })(i));
+// }
+
+// funciones.forEach(function(func) {
+//     func(); // Imprimen el valor de i en el momento que fue creado el método
+// });
