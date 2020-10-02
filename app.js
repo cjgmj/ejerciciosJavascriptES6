@@ -36,30 +36,68 @@
 // }
 
 // **************** Plantillas literales ****************
-function obtenerNombre() {
-    return "John Doe";
-}
+// function obtenerNombre() {
+//     return "John Doe";
+// }
 
-let nombre = "John";
-let apellido = "Doe";
+// let nombre = "John";
+// let apellido = "Doe";
 
-let nombreCompleto = nombre + " " + apellido;
+// let nombreCompleto = nombre + " " + apellido;
 
-console.log(nombreCompleto);
+// console.log(nombreCompleto);
 
-let nombreCompleto2 = `El nombre completo es: ${nombre} ${apellido}`;
-console.log(nombreCompleto2);
+// let nombreCompleto2 = `El nombre completo es: ${nombre} ${apellido}`;
+// console.log(nombreCompleto2);
 
 // Lo que esté dentro de ${} debe ser código JavaScript válido
-let nombreCompleto3 = `El nombre completo es: ${obtenerNombre()} ${1 + 2}`;
-console.log(nombreCompleto3);
+// let nombreCompleto3 = `El nombre completo es: ${obtenerNombre()} ${1 + 2}`;
+// console.log(nombreCompleto3);
 
 // Los literal templates nos permiten crear multilínea
-let multiLinea = "<h1>Titulo</h1> \n<p>Hola Mundo</p>";
-console.log(multiLinea);
+// let multiLinea = "<h1>Titulo</h1> \n<p>Hola Mundo</p>";
+// console.log(multiLinea);
 
 // El carácter del salto de línea es contando en el length
-let multiLinea2 = `<h1 class="algo">${nombre}</h1>
-<p>Hola Mundo ${apellido}</p>
-I'm John`;
-console.log(multiLinea2);
+// let multiLinea2 = `<h1 class="algo">${nombre}</h1>
+// <p>Hola Mundo ${apellido}</p>
+// I'm John`;
+// console.log(multiLinea2);
+
+// **************** Templates con tags ****************
+// Las funciones que no regresan nada por defecto devuelven un undefined
+// function etiqueta() {
+//     return "Otro texto";
+// }
+
+// Esta función comprueba el literal template pudiéndolo actualizar antes de
+// asignarlo a la variable. Aunque no tenga parámetros explícitos siempre recibe
+// parámetros los cuales se encuentran dentro del objeto arguments.
+function etiqueta(literales, ...substituciones) {
+    let resultado = "";
+
+    console.log(arguments);
+
+    console.log(literales);
+    console.log(substituciones);
+
+    for (let i = 0; i < substituciones.length; i++) {
+        resultado += literales[i];
+        resultado += substituciones[i];
+    }
+
+    resultado += literales[literales.length - 1];
+
+
+
+    return resultado;
+}
+
+let unidades = 5,
+    precio_unitario = 15;
+
+// Es una función que se dispara cuando se está construyendo el literal template
+// La función tiene que estar definida
+let mensaje = etiqueta `${unidades} lápices cuestan ${unidades * precio_unitario} céntimos.`;
+
+console.log(mensaje);
