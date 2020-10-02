@@ -22,10 +22,24 @@
 // cumpliera la condición
 // console.log(mensaje);
 
-let mensaje = "123";
+// let mensaje = "123";
+// En ES6 solo se puede declarar la variable una única vez, a diferencia
+// de lo que pasaba en ES5 donde se cogía el valor de la última declaración
+// (Se podría hacer declarando todas las variables con var)
+// var mensaje = "Hola";
+// 
+// if (1 === 2) {
+//     mensaje = "Hola Mundo";
+// }
 
-if (1 === 2) {
-    mensaje = "Hola Mundo";
+// console.log(mensaje);
+
+let mensaje = "Hola";
+
+if (true) {
+    let mensaje = "¿Qué tal?";
+
+    console.log(mensaje);
 }
 
 console.log(mensaje);
