@@ -73,31 +73,39 @@
 // Esta función comprueba el literal template pudiéndolo actualizar antes de
 // asignarlo a la variable. Aunque no tenga parámetros explícitos siempre recibe
 // parámetros los cuales se encuentran dentro del objeto arguments.
-function etiqueta(literales, ...substituciones) {
-    let resultado = "";
+// function etiqueta(literales, ...substituciones) {
+//     let resultado = "";
 
-    console.log(arguments);
+//     console.log(arguments);
 
-    console.log(literales);
-    console.log(substituciones);
+//     console.log(literales);
+//     console.log(substituciones);
 
-    for (let i = 0; i < substituciones.length; i++) {
-        resultado += literales[i];
-        resultado += substituciones[i];
-    }
+//     for (let i = 0; i < substituciones.length; i++) {
+//         resultado += literales[i];
+//         resultado += substituciones[i];
+//     }
 
-    resultado += literales[literales.length - 1];
+//     resultado += literales[literales.length - 1];
 
 
 
-    return resultado;
-}
+//     return resultado;
+// }
 
-let unidades = 5,
-    precio_unitario = 15;
+// let unidades = 5,
+//     precio_unitario = 15;
 
 // Es una función que se dispara cuando se está construyendo el literal template
 // La función tiene que estar definida
-let mensaje = etiqueta `${unidades} lápices cuestan ${unidades * precio_unitario} céntimos.`;
+// let mensaje = etiqueta `${unidades} lápices cuestan ${unidades * precio_unitario} céntimos.`;
+
+// console.log(mensaje);
+
+// **************** Valores raw en literals templates ****************
+let mensaje = `Hola \nMundo\\`,
+    // De esta forma no se escapan los caracteres, mostrándose todos
+    mensaje2 = String.raw `Hola \nMundo\\`;
 
 console.log(mensaje);
+console.log(mensaje2);
