@@ -27,19 +27,54 @@
 // de lo que pasaba en ES5 donde se cogía el valor de la última declaración
 // (Se podría hacer declarando todas las variables con var)
 // var mensaje = "Hola";
-// 
+
 // if (1 === 2) {
 //     mensaje = "Hola Mundo";
 // }
 
 // console.log(mensaje);
 
-let mensaje = "Hola";
+// let mensaje = "Hola";
 
+// if (true) {
+//     let mensaje = "¿Qué tal?";
+// 
+//     console.log(mensaje);
+// }
+
+// console.log(mensaje);
+
+
+// Las constantes tiene que ser inicializadas en el momento en el que son
+// definidas
+const IMPUESTO_SV = 15.25;
+
+// Las constates no pueden cambiar de valor
+// IMPUESTO_SV = 33;
+
+// Como el let las constantes se crean en el scope del bloque en el que estén
+// definidas
 if (true) {
-    let mensaje = "¿Qué tal?";
+    const IMPUESTO_SV = 19.75;
 
-    console.log(mensaje);
+    console.log(IMPUESTO_SV);
 }
 
-console.log(mensaje);
+console.log(IMPUESTO_SV);
+
+// Se pueden declarar objetos como variables, los cuales no pueden volver a ser
+// inicializados pero sus atributos si pueden cambiar de valor
+const PERSONA = {
+    nombre: "John",
+    apellido: "Doe"
+};
+
+// Esto no está permitido
+// PERSONA = {
+//     nombre: "Joe",
+//     apellido: "Simons"
+// };
+
+PERSONA.nombre = "Jane";
+
+console.log(PERSONA);
