@@ -159,23 +159,84 @@
 // **************** Diferencias entre Spread y Rest ****************
 // Rest: Junta los elementos en un array
 // Spread: Esparce los elementos como si fueran enviados de forma separada
-function saludarRest(saludo, ...nombres) {
-    for (let i in nombres) {
-        console.log(`${saludo} ${nombres[i]}`);
+// function saludarRest(saludo, ...nombres) {
+//     for (let i in nombres) {
+//         console.log(`${saludo} ${nombres[i]}`);
+//     }
+// }
+
+// function saludarSpread(saludo, ...nombres) {
+//     console.log(`${saludo} ${nombres}.`);
+// }
+
+// saludarRest("Hola", "John", "Jane", "Linus");
+
+// let personas = ["John", "Jane", "Linus"];
+// saludarSpread("¿Qué tal?", personas);
+
+// Los une al array de cuerpo individualmente
+// let partes = ["brazos", "piernas"];
+// let cuerpo = ["cabeza", "cuello", ...partes, "pies", "dedos"];
+
+// console.log(cuerpo);
+
+// **************** Doble comportamiento funciones ****************
+// En ES5 y versiones anteriores, las funciones sirve con un doble propósito de ser
+// llamadas con o sin la palabra reservada "new".
+// Cuando se llama con "new" el valor de "this" dentro de la función es un nuevo
+// objeto y ese nuevo objeto es retornado.
+// Cuando se llama sin "new", simplemente hacemos la llamada de la función y esperamos
+// el retorno de algún valor procesado que puede ser un objeto, undefined o null.
+// let nombre = "Jane";
+
+// function Persona(nombre) {
+//     this.nombre = nombre;
+// }
+
+// var persona = new Persona("John");
+
+// Cuando la función no es declarada con el new y pasa por "this", "this" apunta al objeto
+// global, en este caso window. Esto es delicado ya que puede cambiar el valor de otra
+// variable con el mismo nombre, en este caso la variable nombre
+// var noEsPersona = Persona("John");
+
+// console.log(persona);
+// console.log(noEsPersona);
+
+// Determinar como fue llamada la función
+// function Persona(nombre) {
+//     if (this instanceof Persona) {
+//         this.nombre = nombre;
+//     } else {
+//         throw new Error("Esta función debe de ser utilizada con el new");
+//     }
+// }
+
+// var persona = new Persona("John");
+// var noEsPersona = Persona("John");
+
+// A la función call se le manda como primer parámetro el elemento que queremos trabajar
+// como el "this"
+// var noEsPersona = Persona.call(persona, "John");
+
+// **********************************************
+// new.target
+// Meta propiedad
+// **********************************************
+// Una meta propiedad, es una propiedad de un no-objeto, que provee información adicional
+// relacionada con su procedencia (como el new).
+// Cuando el constructor de la función es llamada, new.target se llena con el operador new.
+// Si la función "Call()" es ejecutada, "new.target" no estará definida ya que no se ejecutó
+// el constructor.
+function Persona(nombre) {
+    // De esta forma nos aseguramos que haya sido llamada con el new
+    if (typeof new.target !== "undefined") {
+        this.nombre = nombre;
+    } else {
+        throw new Error("Esta función debe de ser utilizada con el new");
     }
 }
 
-function saludarSpread(saludo, ...nombres) {
-    console.log(`${saludo} ${nombres}.`);
-}
+var persona = new Persona("John");
 
-saludarRest("Hola", "John", "Jane", "Linus");
-
-let personas = ["John", "Jane", "Linus"];
-saludarSpread("¿Qué tal?", personas);
-
-// Los une al array de cuerpo individualmente
-let partes = ["brazos", "piernas"];
-let cuerpo = ["cabeza", "cuello", ...partes, "pies", "dedos"];
-
-console.log(cuerpo);
+var noEsPersona = Persona.call(persona, "John");
