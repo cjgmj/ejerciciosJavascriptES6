@@ -53,7 +53,7 @@
 // sumar();
 // sumar(1, 2);
 
-// **************** Parámetros sin nombre (parámetros REST) ****************
+// **************** Parámetros sin nombre (parámetros Rest) ****************
 // ES5
 // function agregar_alumno() {
 //     console.log(arguments);
@@ -86,7 +86,7 @@
 
 // console.log(alumnos_arr2);
 
-// **************** Restricciones parámetro REST ****************
+// **************** Restricciones parámetro Rest ****************
 // 1. Solo puede existir un parámetro rest en la función
 // 2. El parámetro REST debe de ir siempre como último parámetro
 // function juntar_nombres(...nombres, apellidos) {
@@ -132,26 +132,50 @@
 // console.log(persona2);
 
 // **************** Añadir propiedades a objetos desde otros ****************
-let persona1 = {
-    nombre: "John",
-    edad: 33
-};
+// let persona1 = {
+//     nombre: "John",
+//     edad: 33
+// };
 
-let persona2 = {
-    nombre: "Jane",
-    edad: 22,
-    pais: "España",
-    conduce: true,
-    vehiculo: true
-};
+// let persona2 = {
+//     nombre: "Jane",
+//     edad: 22,
+//     pais: "España",
+//     conduce: true,
+//     vehiculo: true
+// };
 
 // persona1.pais = persona2.pais;
 // persona2.pais = "Portugal";
 
-persona1 = {
-    ...persona2,
-    ...persona1
+// persona1 = {
+//     ...persona2,
+//     ...persona1
+// }
+
+// console.log(persona1);
+// console.log(persona2);
+
+// **************** Diferencias entre Spread y Rest ****************
+// Rest: Junta los elementos en un array
+// Spread: Esparce los elementos como si fueran enviados de forma separada
+function saludarRest(saludo, ...nombres) {
+    for (let i in nombres) {
+        console.log(`${saludo} ${nombres[i]}`);
+    }
 }
 
-console.log(persona1);
-console.log(persona2);
+function saludarSpread(saludo, ...nombres) {
+    console.log(`${saludo} ${nombres}.`);
+}
+
+saludarRest("Hola", "John", "Jane", "Linus");
+
+let personas = ["John", "Jane", "Linus"];
+saludarSpread("¿Qué tal?", personas);
+
+// Los une al array de cuerpo individualmente
+let partes = ["brazos", "piernas"];
+let cuerpo = ["cabeza", "cuello", ...partes, "pies", "dedos"];
+
+console.log(cuerpo);
