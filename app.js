@@ -53,7 +53,7 @@
 // sumar();
 // sumar(1, 2);
 
-// **************** Parámetros sin nombre ****************
+// **************** Parámetros sin nombre (parámetros REST) ****************
 // ES5
 // function agregar_alumno() {
 //     console.log(arguments);
@@ -89,10 +89,29 @@
 // **************** Restricciones parámetro REST ****************
 // 1. Solo puede existir un parámetro rest en la función
 // 2. El parámetro REST debe de ir siempre como último parámetro
-function juntar_nombres(...nombres, apellidos) {
-    // Esta función da error
-}
+// function juntar_nombres(...nombres, apellidos) {
+//     // Esta función da error
+// }
 
-function juntar_nombres(...nombres, ...apellidos) {
-    // Esta función da error
-}
+// function juntar_nombres(...nombres, ...apellidos) {
+//     // Esta función da error
+// }
+
+// **************** Operador Spread ****************
+// El operador spread nos permite enviar a una función un array que será
+// tratado como argumentos individuales
+// ES5
+// var numeros = [1, 5, 10, 20, 100, 234];
+
+// La función apply nos permite cambiar el valor del objeto this
+// y enviar un array adicional
+// var max = Math.max.apply(Math, numeros);
+
+// console.log(max);
+
+// ES6
+let numeros = [1, 5, 10, 20, 100, 234];
+
+let max = Math.max(...numeros);
+
+console.log(max);
