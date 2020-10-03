@@ -71,17 +71,28 @@
 // console.log(alumnos_arr2);
 
 // ES6
-function agregar_alumno(arr_alumnos, ...alumnos) {
-    console.log(arguments);
+// function agregar_alumno(arr_alumnos, ...alumnos) {
+//     console.log(arguments);
 
-    for (let i = 0; i < alumnos.length; i++) {
-        arr_alumnos.push(alumnos[i]);
-    }
+//     for (let i = 0; i < alumnos.length; i++) {
+//         arr_alumnos.push(alumnos[i]);
+//     }
 
-    return arr_alumnos;
+//     return arr_alumnos;
+// }
+
+// let alumnos_arr = ["John"];
+// let alumnos_arr2 = agregar_alumno(alumnos_arr, "Jane", "Linus", "Rasmus");
+
+// console.log(alumnos_arr2);
+
+// **************** Restricciones parámetro REST ****************
+// 1. Solo puede existir un parámetro rest en la función
+// 2. El parámetro REST debe de ir siempre como último parámetro
+function juntar_nombres(...nombres, apellidos) {
+    // Esta función da error
 }
 
-let alumnos_arr = ["John"];
-let alumnos_arr2 = agregar_alumno(alumnos_arr, "Jane", "Linus", "Rasmus");
-
-console.log(alumnos_arr2);
+function juntar_nombres(...nombres, ...apellidos) {
+    // Esta función da error
+}
