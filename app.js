@@ -117,16 +117,41 @@
 // console.log(max);
 
 // **************** Romper relación de referencia ****************
+// let persona1 = {
+//     nombre: "John",
+//     edad: 33
+// };
+
+// Para romper la referencia de los objetos hay que encapsular el objeto
+// entre llaves y usar el operador spread
+// let persona2 = {...persona1 };
+
+// persona2.nombre = "Jane";
+
+// console.log(persona1);
+// console.log(persona2);
+
+// **************** Añadir propiedades a objetos desde otros ****************
 let persona1 = {
     nombre: "John",
     edad: 33
 };
 
-// Para romper la referencia de los objetos hay que encapsular el objeto
-// entre llaves y usar el operador spread
-let persona2 = {...persona1 };
+let persona2 = {
+    nombre: "Jane",
+    edad: 22,
+    pais: "España",
+    conduce: true,
+    vehiculo: true
+};
 
-persona2.nombre = "Jane";
+// persona1.pais = persona2.pais;
+// persona2.pais = "Portugal";
+
+persona1 = {
+    ...persona2,
+    ...persona1
+}
 
 console.log(persona1);
 console.log(persona2);
