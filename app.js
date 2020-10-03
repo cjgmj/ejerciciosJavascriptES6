@@ -110,8 +110,23 @@
 // console.log(max);
 
 // ES6
-let numeros = [1, 5, 10, 20, 100, 234];
+// let numeros = [1, 5, 10, 20, 100, 234];
 
-let max = Math.max(...numeros);
+// let max = Math.max(...numeros);
 
-console.log(max);
+// console.log(max);
+
+// **************** Romper relación de referencia ****************
+let persona1 = {
+    nombre: "John",
+    edad: 33
+};
+
+// Para romper la referencia de los objetos hay que encapsular el objeto
+// entre llaves y usar el operador spread
+let persona2 = {...persona1 };
+
+persona2.nombre = "Jane";
+
+console.log(persona1);
+console.log(persona2);
