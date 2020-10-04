@@ -63,12 +63,34 @@
 // console.log(persona["nombre"]);
 // console.log(persona[apellido]);
 
-let suffix = "nombre";
+// let suffix = "nombre";
 
-let persona = {
-    ["primer " + suffix]: "John",
-    ["segundo " + suffix]: "Howard"
-};
+// let persona = {
+//     ["primer " + suffix]: "John",
+//     ["segundo " + suffix]: "Howard"
+// };
 
-console.log(persona["primer nombre"]);
-console.log(persona["segundo " + suffix]);
+// console.log(persona["primer nombre"]);
+// console.log(persona["segundo " + suffix]);
+
+// **************** Método Object.is() ****************
+console.log(+0 == -0);
+console.log(+0 === -0);
+console.log(Object.is(+0, -0));
+
+console.log("*****");
+
+console.log(NaN == NaN);
+console.log(NaN === NaN);
+console.log(Object.is(NaN, NaN));
+
+console.log("*****");
+
+console.log(5 == 5);
+console.log(5 == "5");
+
+console.log(5 === 5);
+console.log(5 === "5");
+
+console.log(Object.is(5, 5));
+console.log(Object.is(5, "5"));
