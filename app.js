@@ -76,21 +76,34 @@
 // console.log(saludo1);
 
 // **************** No hay cambios en el objeto this ****************
-var manejador = {
-    id: "123",
-    init: function() {
-        // ES5
-        // document.addEventListener("click", (function(event) {
-        //     this.clickEnPagina(event.type);
-        //     // console.log(this);
-        // }).bind(this), false);
+// var manejador = {
+//     id: "123",
+//     init: function() {
+//         // ES5
+//         // document.addEventListener("click", (function(event) {
+//         //     this.clickEnPagina(event.type);
+//         //     // console.log(this);
+//         // }).bind(this), false);
 
-        // ES6
-        document.addEventListener("click", event => this.clickEnPagina(event.type), false);
-    },
-    clickEnPagina: function(type) {
-        console.log("Manejando " + type + " para el id: " + this.id);
-    }
-};
+//         // ES6
+//         document.addEventListener("click", event => this.clickEnPagina(event.type), false);
+//     },
+//     clickEnPagina: function(type) {
+//         console.log("Manejando " + type + " para el id: " + this.id);
+//     }
+// };
 
-manejador.init();
+// manejador.init();
+
+// **************** Funciones de flecha y arrays ****************
+var arr = [5, 10, 11, 2, 1, 9, 20];
+
+// ES5
+// var ordenado = arr.sort(function(a, b) {
+//     return a - b;
+// });
+
+// ES6
+let ordenado = arr.sort((a, b) => a - b);
+
+console.log(ordenado);
