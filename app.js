@@ -48,17 +48,29 @@
 // console.log(saludarPersona2("John"));
 // console.log(saludarPersona1("John"));
 
-var obtenerLibro2 = function(id) {
-    return {
-        id: id,
-        nombre: "Harry Potter"
-    };
-};
+// var obtenerLibro2 = function(id) {
+//     return {
+//         id: id,
+//         nombre: "Harry Potter"
+//     };
+// };
 
-let obtenerLibro1 = id => ({
-    id,
-    nombre: "Harry Potter"
-});
+// let obtenerLibro1 = id => ({
+//     id,
+//     nombre: "Harry Potter"
+// });
 
-console.log(obtenerLibro2(1));
-console.log(obtenerLibro1(1));
+// console.log(obtenerLibro2(1));
+// console.log(obtenerLibro1(1));
+
+// **************** Funciones anónimas ****************
+// Son las funciones que se ejecutan en el momento en el que son creadas
+// Los paréntesis en las funciones normales no son obligatorios
+var saludo2 = (function(nombre) {
+    return "Hola " + nombre;
+})("John");
+
+let saludo1 = (nombre => `Hola ${nombre}`)("John");
+
+console.log(saludo2);
+console.log(saludo1);
