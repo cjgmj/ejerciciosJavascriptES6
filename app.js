@@ -1,7 +1,7 @@
 // **************** Funciones de flecha ****************
 // 1. No hay creación de this, super, arguments y new.target, el valor de esos objetos
 // apuntan al objeto padre.
-// 2. No pouede ser llamado con new.
+// 2. No puede ser llamado con new.
 // 3. No tienen prototipos prototype.
 // 4. No pueden cambiar el valor de this.
 // 5. No hay objeto arguments.
@@ -96,7 +96,7 @@
 // manejador.init();
 
 // **************** Funciones de flecha y arrays ****************
-var arr = [5, 10, 11, 2, 1, 9, 20];
+// var arr = [5, 10, 11, 2, 1, 9, 20];
 
 // ES5
 // var ordenado = arr.sort(function(a, b) {
@@ -104,6 +104,28 @@ var arr = [5, 10, 11, 2, 1, 9, 20];
 // });
 
 // ES6
-let ordenado = arr.sort((a, b) => a - b);
+// let ordenado = arr.sort((a, b) => a - b);
 
-console.log(ordenado);
+// console.log(ordenado);
+
+// **************** Identificar funciones de flecha ****************
+let restar = (a, b) => a - b;
+
+console.log(typeof restar);
+console.log(restar instanceof Function);
+
+// let restar2 = new restar(1, 2); // Devuelve un error porque no tiene un constructor
+
+// Deuvelve error porque no existe el objeto arguments
+// ((a, b) => {
+//     console.log(arguments[0]);
+// })();
+
+// De esta forma arguments es buscado en el objeto padre más cercano
+function ejemplo(x, y) {
+    ((a, b) => {
+        console.log(arguments[0]);
+    })();
+}
+
+ejemplo(10, 20);
