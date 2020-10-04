@@ -66,11 +66,31 @@
 // **************** Funciones anónimas ****************
 // Son las funciones que se ejecutan en el momento en el que son creadas
 // Los paréntesis en las funciones normales no son obligatorios
-var saludo2 = (function(nombre) {
-    return "Hola " + nombre;
-})("John");
+// var saludo2 = (function(nombre) {
+//     return "Hola " + nombre;
+// })("John");
 
-let saludo1 = (nombre => `Hola ${nombre}`)("John");
+// let saludo1 = (nombre => `Hola ${nombre}`)("John");
 
-console.log(saludo2);
-console.log(saludo1);
+// console.log(saludo2);
+// console.log(saludo1);
+
+// **************** No hay cambios en el objeto this ****************
+var manejador = {
+    id: "123",
+    init: function() {
+        // ES5
+        // document.addEventListener("click", (function(event) {
+        //     this.clickEnPagina(event.type);
+        //     // console.log(this);
+        // }).bind(this), false);
+
+        // ES6
+        document.addEventListener("click", event => this.clickEnPagina(event.type), false);
+    },
+    clickEnPagina: function(type) {
+        console.log("Manejando " + type + " para el id: " + this.id);
+    }
+};
+
+manejador.init();
