@@ -7,31 +7,52 @@
 // - Encapsulamiento
 // - Abstracción
 // - Polimorfismo
-let gato = {
-    sonido() {
-        console.log("Miau");
-    },
-    chillido() {
-        console.log("MIAU!");
-    }
-};
+// let gato = {
+//     sonido() {
+//         console.log("Miau");
+//     },
+//     chillido() {
+//         console.log("MIAU!");
+//     }
+// };
 
-let perro = {
-    sonido() {
-        console.log("guau");
-    }
-};
+// let perro = {
+//     sonido() {
+//         console.log("guau");
+//     }
+// };
 
-let angora = Object.create(gato);
-console.log(Object.getPrototypeOf(angora) === gato);
+// let angora = Object.create(gato);
+// console.log(Object.getPrototypeOf(angora) === gato);
 
-angora.sonido();
-angora.chillido();
+// angora.sonido();
+// angora.chillido();
 
 // Cambia el prototipo del objeto
-Object.setPrototypeOf(angora, perro);
+// Object.setPrototypeOf(angora, perro);
 
-console.log(Object.getPrototypeOf(angora) === gato);
+// console.log(Object.getPrototypeOf(angora) === gato);
 
-angora.sonido();
-angora.chillido(); // Da error porque el método no existe dentro del prototipo perro
+// angora.sonido();
+// angora.chillido(); // Da error porque el método no existe dentro del prototipo perro
+
+// **************** Acceso prototipo con "SUPER" ****************
+let persona = {
+    saludar() {
+        return "Hola";
+    }
+};
+
+let amigo = {
+    saludar() {
+        // ES5
+        // return Object.getPrototypeOf(this).saludar.call(this) + ", saludos!";
+
+        // ES6
+        return super.saludar() + ", saludos!"; // Si se llama al super sin haber herencia de un prototipo da error
+    }
+};
+
+Object.setPrototypeOf(amigo, persona);
+
+console.log(amigo.saludar());
