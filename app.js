@@ -82,37 +82,71 @@
 // console.log(twitter);
 
 // **************** Destructuración de objetos anidados ****************
-let autoGuardado = {
-    archivo: "app.js",
-    cursor: {
-        linea: 7,
-        columna: 16
-    },
-    ultimoArchivo: {
-        archivo: "index.html",
-        cursor: {
-            linea: 8,
-            columna: 20
-        }
-    },
-    otroNodo: {
-        subNodo: {
-            cursor: {
-                linea: 11,
-                columna: 11
-            }
-        }
-    }
-};
+// let autoGuardado = {
+//     archivo: "app.js",
+//     cursor: {
+//         linea: 7,
+//         columna: 16
+//     },
+//     ultimoArchivo: {
+//         archivo: "index.html",
+//         cursor: {
+//             linea: 8,
+//             columna: 20
+//         }
+//     },
+//     otroNodo: {
+//         subNodo: {
+//             cursor: {
+//                 linea: 11,
+//                 columna: 11
+//             }
+//         }
+//     }
+// };
 
-let { cursor: cursorActivo } = autoGuardado;
-console.log(cursorActivo);
+// let { cursor: cursorActivo } = autoGuardado;
+// console.log(cursorActivo);
 
-let { ultimoArchivo: { cursor: cursorUltimoArchivo } } = autoGuardado;
-console.log(cursorUltimoArchivo);
+// let { ultimoArchivo: { cursor: cursorUltimoArchivo } } = autoGuardado;
+// console.log(cursorUltimoArchivo);
 
-let { otroNodo: { subNodo: { cursor: cursorSubNodo } } } = autoGuardado;
-console.log(cursorSubNodo);
+// let { otroNodo: { subNodo: { cursor: cursorSubNodo } } } = autoGuardado;
+// console.log(cursorSubNodo);
 
-let cursorSubNodo2 = autoGuardado.otroNodo.subNodo.cursor;
-console.log(cursorSubNodo2);
+// let cursorSubNodo2 = autoGuardado.otroNodo.subNodo.cursor;
+// console.log(cursorSubNodo2);
+
+// **************** Destructuración de arrays ****************
+let frutas = ["Plátano", "Pera", "Uva"];
+
+// Es en orden secuencial
+let [fruta1, fruta2] = frutas;
+
+console.log(fruta1, fruta2);
+
+// Para ignorar los elementos colocamos una , en la posición a ignorar
+let [, , fruta3] = frutas;
+console.log(fruta3);
+
+let otraFruta = "Manzana";
+
+// La destructuración sobrescribe valores
+[otraFruta] = frutas;
+
+console.log(otraFruta);
+
+let a = 1;
+let b = 2;
+let temp;
+
+// ES5
+// temp = a;
+// a = b;
+// b = temp;
+
+// ES6
+[a, b] = [b, a];
+
+console.log(a);
+console.log(b);
