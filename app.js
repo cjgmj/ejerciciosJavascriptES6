@@ -173,12 +173,41 @@
 
 // console.log(fruta1, fruta2);
 
-let opciones = {
-    nombre: "John"
-};
+// let opciones = {
+//     nombre: "John"
+// };
 
-// Si el objeto tiene una propiedad apellido usará esa, en caso contrario el valor será Doe
-// Sirve para hacer, por ejemplo, let apellido = opciones.apellido || "Doe";
-let { nombre, apellido = "Doe" } = opciones;
+// // Si el objeto tiene una propiedad apellido usará esa, en caso contrario el valor será Doe
+// // Sirve para hacer, por ejemplo, let apellido = opciones.apellido || "Doe";
+// let { nombre, apellido = "Doe" } = opciones;
 
-console.log(nombre, apellido);
+// console.log(nombre, apellido);
+
+// **************** Destructuración de parámetros ****************
+// ES5
+// function crearJugador(nickname, opciones) {
+//     opciones = opciones || {};
+
+//     let hp = opciones.hp,
+//         sp = opciones.sp,
+//         clase = opciones.clase;
+
+//     console.log(nickname, hp, sp, clase);
+
+//     // Código para crear el jugador
+// }
+
+// ES6
+function crearJugador(nickname, { hp, sp, clase } = { hp: 100, sp: 50, clase: "Mago" }) {
+    console.log(nickname, hp, sp, clase);
+
+    // Código para crear el jugador
+}
+
+crearJugador("johnd");
+
+crearJugador("johnd", {
+    hp: 500,
+    sp: 100,
+    clase: "Guerrero"
+});
