@@ -118,35 +118,50 @@
 // console.log(cursorSubNodo2);
 
 // **************** Destructuración de arrays ****************
-let frutas = ["Plátano", "Pera", "Uva"];
+// let frutas = ["Plátano", "Pera", "Uva"];
 
-// Es en orden secuencial
-let [fruta1, fruta2] = frutas;
+// // Es en orden secuencial
+// let [fruta1, fruta2] = frutas;
 
-console.log(fruta1, fruta2);
+// console.log(fruta1, fruta2);
 
-// Para ignorar los elementos colocamos una , en la posición a ignorar
-let [, , fruta3] = frutas;
-console.log(fruta3);
+// // Para ignorar los elementos colocamos una , en la posición a ignorar
+// let [, , fruta3] = frutas;
+// console.log(fruta3);
 
-let otraFruta = "Manzana";
+// let otraFruta = "Manzana";
 
-// La destructuración sobrescribe valores
-[otraFruta] = frutas;
+// // La destructuración sobrescribe valores
+// [otraFruta] = frutas;
 
-console.log(otraFruta);
+// console.log(otraFruta);
 
-let a = 1;
-let b = 2;
-let temp;
+// let a = 1;
+// let b = 2;
+// let temp;
 
-// ES5
-// temp = a;
-// a = b;
-// b = temp;
+// // ES5
+// // temp = a;
+// // a = b;
+// // b = temp;
 
-// ES6
-[a, b] = [b, a];
+// // ES6
+// [a, b] = [b, a];
 
-console.log(a);
-console.log(b);
+// console.log(a);
+// console.log(b);
+
+// **************** Destructuración de arrays anidados ****************
+let colores1 = ["Rojo", ["Verde", "Amarillo"], "Morado", "Naranja"];
+let [color1, [color2]] = colores1;
+
+console.log(color1, color2);
+
+let colores2 = ["Rojo", "Verde", "Amarillo", "Morado", "Naranja"];
+// Con los ... obtenemos el resto de elementos en un nuevo array, esto solo funciona
+// para los arrays
+// Si no hay más elementos devuelve un array vacío
+let [colorPrincipal, ...restoColores] = colores2;
+
+console.log(colorPrincipal);
+console.log(restoColores);
