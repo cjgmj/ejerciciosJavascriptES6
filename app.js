@@ -37,22 +37,46 @@
 // angora.chillido(); // Da error porque el método no existe dentro del prototipo perro
 
 // **************** Acceso prototipo con "SUPER" ****************
-let persona = {
-    saludar() {
-        return "Hola";
-    }
+// let persona = {
+//     saludar() {
+//         return "Hola";
+//     }
+// };
+
+// let amigo = {
+//     saludar() {
+//         // ES5
+//         // return Object.getPrototypeOf(this).saludar.call(this) + ", saludos!";
+
+//         // ES6
+//         return super.saludar() + ", saludos!"; // Si se llama al super sin haber herencia de un prototipo da error
+//     }
+// };
+
+// Object.setPrototypeOf(amigo, persona);
+
+// console.log(amigo.saludar());
+
+// **************** Destructuración de objetos ****************
+let ajustes = {
+    nombre: "John Doe",
+    email: "john.doe@yopmail.com",
+    facebook: " john.doe",
+    google: "john.doe",
+    premium: true
 };
 
-let amigo = {
-    saludar() {
-        // ES5
-        // return Object.getPrototypeOf(this).saludar.call(this) + ", saludos!";
+// ES5
+// let nombre = ajustes.nombre,
+//     email = ajustes.email,
+//     facebook = ajustes.facebook;
 
-        // ES6
-        return super.saludar() + ", saludos!"; // Si se llama al super sin haber herencia de un prototipo da error
-    }
-};
+// ES6
+// Añadiendo : se le puede cambiar el nombre de la variable a la que será
+// asignado el valor, esto también se puede hacer en las variavle que no exista aún
+// Se puede inicializar variables aunque no exista en el objeto, si el objeto trae valor
+// en la variable, se asigna el que tiene
+let { nombre, email: correo, facebook, twitter = "john_d" } = ajustes;
 
-Object.setPrototypeOf(amigo, persona);
-
-console.log(amigo.saludar());
+console.log(nombre, correo, facebook);
+console.log(twitter);
