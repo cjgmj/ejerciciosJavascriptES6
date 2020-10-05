@@ -152,16 +152,33 @@
 // console.log(b);
 
 // **************** Destructuración de arrays anidados ****************
-let colores1 = ["Rojo", ["Verde", "Amarillo"], "Morado", "Naranja"];
-let [color1, [color2]] = colores1;
+// let colores1 = ["Rojo", ["Verde", "Amarillo"], "Morado", "Naranja"];
+// let [color1, [color2]] = colores1;
 
-console.log(color1, color2);
+// console.log(color1, color2);
 
-let colores2 = ["Rojo", "Verde", "Amarillo", "Morado", "Naranja"];
-// Con los ... obtenemos el resto de elementos en un nuevo array, esto solo funciona
-// para los arrays
-// Si no hay más elementos devuelve un array vacío
-let [colorPrincipal, ...restoColores] = colores2;
+// let colores2 = ["Rojo", "Verde", "Amarillo", "Morado", "Naranja"];
+// // Con los ... obtenemos el resto de elementos en un nuevo array, esto solo funciona
+// // para los arrays
+// // Si no hay más elementos devuelve un array vacío
+// let [colorPrincipal, ...restoColores] = colores2;
 
-console.log(colorPrincipal);
-console.log(restoColores);
+// console.log(colorPrincipal);
+// console.log(restoColores);
+
+// **************** Valores por defecto en la destructuración ****************
+// let frutas = ["Plátano"];
+// // Si el array tiene un segundo valor usará ese, en caso contrario el valor será Manzana
+// let [fruta1, fruta2 = "Manzana"] = frutas;
+
+// console.log(fruta1, fruta2);
+
+let opciones = {
+    nombre: "John"
+};
+
+// Si el objeto tiene una propiedad apellido usará esa, en caso contrario el valor será Doe
+// Sirve para hacer, por ejemplo, let apellido = opciones.apellido || "Doe";
+let { nombre, apellido = "Doe" } = opciones;
+
+console.log(nombre, apellido);
