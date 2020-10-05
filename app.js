@@ -58,25 +58,61 @@
 // console.log(amigo.saludar());
 
 // **************** Destructuración de objetos ****************
-let ajustes = {
-    nombre: "John Doe",
-    email: "john.doe@yopmail.com",
-    facebook: " john.doe",
-    google: "john.doe",
-    premium: true
+// let ajustes = {
+//     nombre: "John Doe",
+//     email: "john.doe@yopmail.com",
+//     facebook: " john.doe",
+//     google: "john.doe",
+//     premium: true
+// };
+
+// // ES5
+// // let nombre = ajustes.nombre,
+// //     email = ajustes.email,
+// //     facebook = ajustes.facebook;
+
+// // ES6
+// // Añadiendo : se le puede cambiar el nombre de la variable a la que será
+// // asignado el valor, esto también se puede hacer en las variavle que no exista aún
+// // Se puede inicializar variables aunque no exista en el objeto, si el objeto trae valor
+// // en la variable, se asigna el que tiene
+// let { nombre, email: correo, facebook, twitter = "john_d" } = ajustes;
+
+// console.log(nombre, correo, facebook);
+// console.log(twitter);
+
+// **************** Destructuración de objetos anidados ****************
+let autoGuardado = {
+    archivo: "app.js",
+    cursor: {
+        linea: 7,
+        columna: 16
+    },
+    ultimoArchivo: {
+        archivo: "index.html",
+        cursor: {
+            linea: 8,
+            columna: 20
+        }
+    },
+    otroNodo: {
+        subNodo: {
+            cursor: {
+                linea: 11,
+                columna: 11
+            }
+        }
+    }
 };
 
-// ES5
-// let nombre = ajustes.nombre,
-//     email = ajustes.email,
-//     facebook = ajustes.facebook;
+let { cursor: cursorActivo } = autoGuardado;
+console.log(cursorActivo);
 
-// ES6
-// Añadiendo : se le puede cambiar el nombre de la variable a la que será
-// asignado el valor, esto también se puede hacer en las variavle que no exista aún
-// Se puede inicializar variables aunque no exista en el objeto, si el objeto trae valor
-// en la variable, se asigna el que tiene
-let { nombre, email: correo, facebook, twitter = "john_d" } = ajustes;
+let { ultimoArchivo: { cursor: cursorUltimoArchivo } } = autoGuardado;
+console.log(cursorUltimoArchivo);
 
-console.log(nombre, correo, facebook);
-console.log(twitter);
+let { otroNodo: { subNodo: { cursor: cursorSubNodo } } } = autoGuardado;
+console.log(cursorSubNodo);
+
+let cursorSubNodo2 = autoGuardado.otroNodo.subNodo.cursor;
+console.log(cursorSubNodo2);
