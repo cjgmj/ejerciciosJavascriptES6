@@ -1,4 +1,4 @@
-// **************** Creando sets ****************
+// **************** Añadiendo y buscando elementos en un Set ****************
 // let items = new Set();
 
 // items.add(10);
@@ -19,10 +19,26 @@
 
 // console.log(items);
 
-let items = new Set([1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7]);
+// let items = new Set([1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7]);
+
+// console.log(items);
+// console.log(items.size);
+
+// console.log(items.has(7)); // Comprueba si el elemento está en el Set
+// console.log(items.has("7")); // También compara con Object.is()
+
+// **************** Eliminando elementos en un Set ****************
+let items = new Set([1, 2, 3, 4, 5]);
 
 console.log(items);
 console.log(items.size);
 
-console.log(items.has(7)); // Comprueba si el elemento está en el Set
-console.log(items.has("7")); // También compara con Object.is()
+items.delete(3);
+
+console.log(items);
+console.log(items.size);
+
+items.clear(); // Borra todo el Set
+
+console.log(items);
+console.log(items.size);
