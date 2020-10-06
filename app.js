@@ -35,30 +35,47 @@
 
 // **************** Compartiendo símbolos ****************
 // Sirve para verificar si el símbolo ha sido previamente creado, y si es así usar ese
-let userID = Symbol.for("userID");
-let objecto = {};
+// let userID = Symbol.for("userID");
+// let objecto = {};
 
-objecto[userID] = "12345";
+// objecto[userID] = "12345";
 
-console.log(objecto[userID]);
-console.log(userID);
+// console.log(objecto[userID]);
+// console.log(userID);
 
-let userID2 = Symbol.for("userID");
-console.log(userID == userID2);
-console.log(userID === userID2);
-console.log(Object.is(userID, userID2));
+// let userID2 = Symbol.for("userID");
+// console.log(userID == userID2);
+// console.log(userID === userID2);
+// console.log(Object.is(userID, userID2));
 
-console.log(objecto[userID2]);
-console.log(userID2);
+// console.log(objecto[userID2]);
+// console.log(userID2);
 
-// De esta forma obtenemos el key usado por el símbolo
-let id = Symbol.for("uniqueId");
-console.log(Symbol.keyFor(id));
+// // De esta forma obtenemos el key usado por el símbolo
+// let id = Symbol.for("uniqueId");
+// console.log(Symbol.keyFor(id));
 
-let id2 = Symbol.for("uniqueId");
-console.log(Symbol.keyFor(id2));
+// let id2 = Symbol.for("uniqueId");
+// console.log(Symbol.keyFor(id2));
 
-console.log(id === id2);
+// console.log(id === id2);
 
-let id3 = Symbol("uniqueId");
-console.log(Symbol.keyFor(id3)); // Devuelve undefined porque no existe nada asociado para este id
+// let id3 = Symbol("uniqueId");
+// console.log(Symbol.keyFor(id3)); // Devuelve undefined porque no existe nada asociado para este id
+
+// **************** Coerción de los símbolos ****************
+let id = Symbol.for("id");
+let numero = 10;
+let texto = "10";
+let bool = true;
+let nan = NaN;
+
+console.log(numero + texto);
+console.log(numero + Number(texto));
+console.log(numero + nan);
+console.log(bool + bool);
+console.log(bool + (!bool));
+
+// console.log(texto + id); // Da error
+console.log("Símbolo: ", id); // Para imprimir el símbolo
+console.log("Símbolo: " + String(id)); // Para imprimir el símbolo
