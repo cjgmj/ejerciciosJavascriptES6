@@ -42,12 +42,34 @@
 // console.log(items.size);
 
 // **************** ForEach en los Sets ****************
-let personas = new Set(["John", "Jane", "Linus"]);
+// let personas = new Set(["John", "Jane", "Linus"]);
 
-personas.forEach(function(value, key, set) {
-    console.log(value);
-    console.log(key);
-    console.log(set);
+// personas.forEach(function(value, key, set) {
+//     console.log(value);
+//     console.log(key);
+//     console.log(set);
 
-    console.log(personas === set);
-});
+//     console.log(personas === set);
+// });
+
+// **************** Convertir Set en Array ****************
+// let numeros = [1, 2, 3, 4, 5, 6, 7];
+
+// let setNumeros = new Set(numeros);
+
+// console.log(setNumeros);
+
+// // Convertimos el Set en Array mediante el operador Spread
+// let arrayNumeros = [...setNumeros];
+
+// console.log(arrayNumeros);
+
+let numeros = [1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 1, 2, 3, 4, 5];
+
+let arrayNumeros = eliminaDuplicados(numeros);
+
+console.log(arrayNumeros);
+
+function eliminaDuplicados(items) {
+    return [...new Set(items)];
+}
