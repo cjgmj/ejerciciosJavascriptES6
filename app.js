@@ -64,18 +64,47 @@
 // console.log(Symbol.keyFor(id3)); // Devuelve undefined porque no existe nada asociado para este id
 
 // **************** Coerción de los símbolos ****************
+// let id = Symbol.for("id");
+// let numero = 10;
+// let texto = "10";
+// let bool = true;
+// let nan = NaN;
+
+// console.log(numero + texto);
+// console.log(numero + Number(texto));
+// console.log(numero + nan);
+// console.log(bool + bool);
+// console.log(bool + (!bool));
+
+// // console.log(texto + id); // Da error
+// console.log("Símbolo: ", id); // Para imprimir el símbolo
+// console.log("Símbolo: " + String(id)); // Para imprimir el símbolo
+
+// **************** Recuperar propiedades símbolo ****************
 let id = Symbol.for("id");
-let numero = 10;
-let texto = "10";
-let bool = true;
-let nan = NaN;
+let activo = Symbol.for("activo");
 
-console.log(numero + texto);
-console.log(numero + Number(texto));
-console.log(numero + nan);
-console.log(bool + bool);
-console.log(bool + (!bool));
+let persona = {
+    [id]: "123",
+    [activo]: true,
+    ["codigo"]: "XY123",
+    nombre: "John",
+    apellido: "Doe",
+    edad: 33
+};
 
-// console.log(texto + id); // Da error
-console.log("Símbolo: ", id); // Para imprimir el símbolo
-console.log("Símbolo: " + String(id)); // Para imprimir el símbolo
+// Los símbolos no aparecen así
+console.log(Object.keys(persona));
+
+for (let key in persona) {
+    console.log(key, persona[key]);
+}
+
+// Para obtener los símbolos de un objeto se haría así
+let simbolos = Object.getOwnPropertySymbols(persona);
+
+console.log(simbolos);
+
+for (let i in simbolos) {
+    console.log(simbolos[i], Symbol.keyFor(simbolos[i]), persona[simbolos[i]]);
+}
