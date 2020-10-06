@@ -64,12 +64,39 @@
 
 // console.log(arrayNumeros);
 
-let numeros = [1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 1, 2, 3, 4, 5];
+// let numeros = [1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 1, 2, 3, 4, 5];
 
-let arrayNumeros = eliminaDuplicados(numeros);
+// let arrayNumeros = eliminaDuplicados(numeros);
 
-console.log(arrayNumeros);
+// console.log(arrayNumeros);
 
-function eliminaDuplicados(items) {
-    return [...new Set(items)];
-}
+// function eliminaDuplicados(items) {
+//     return [...new Set(items)];
+// }
+
+// **************** WeakSets ****************
+// Sirven únicamente para almacenar referencias a los objetos
+// 1. Los métodos add(), has(), remove(), dan error si se envía algo como
+// parámetro que no sea un objeto
+// 2. No tiene manera de hacer repeticiones o ciclos for in
+// 3. No tiene keys() ni values() por lo que no hay forma vía programación 
+// de saber cuantos elementos hay dentro
+// 4. No tienen for-each
+// 5. No tienen propiedad size
+
+let set = new WeakSet();
+
+let persona1 = {
+    nombre: "John"
+};
+
+let persona2 = {
+    nombre: "Jane"
+};
+
+set.add(persona1);
+set.add(persona2);
+
+set.delete(persona1);
+
+console.log(set);
