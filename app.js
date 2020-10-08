@@ -86,43 +86,74 @@
 // console.log(persona instanceof Persona);
 
 // **************** Clases como parámetros ****************
-function creadorClases(definicionClase) {
-    return new definicionClase();
+// function creadorClases(definicionClase) {
+//     return new definicionClase();
+// }
+
+// let objeto = creadorClases(
+//     class {
+//         constructor() {
+//             this.nombre = undefined;
+//         }
+
+//         saludar() {
+//             console.log("Hola");
+//         }
+//     }
+// );
+
+// objeto.saludar();
+
+// class Cuadrado {
+//     constructor(lado) {
+//         this.lado = lado;
+//     }
+
+//     getArea() {
+//         return this.lado * this.lado;
+//     }
+// }
+
+// function imprimirCuadrado(cuadrado) {
+//     if (!(cuadrado instanceof Cuadrado)) {
+//         console.error("El parámetro enviado no es un cuadrado");
+//         return;
+//     }
+
+//     console.log(cuadrado.getArea());
+// }
+
+// let mesa = new Cuadrado(10);
+// imprimirCuadrado(mesa);
+// imprimirCuadrado("123"); // Da error porque no es de tipo Cuadrado
+
+// **************** Métodos estáticos y métodos computados ****************
+// Los métodos computados son aquellos que su nombre se puede definir a través
+// de una variable
+let nombreMetodo = "gritarNombre";
+
+class Persona {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    decirNombre() {
+        console.log(this.nombre);
+    }
+
+    [nombreMetodo]() {
+        console.log(this.nombre.toUpperCase());
+    }
+
+    static crear(nombre) {
+        return new Persona(nombre);
+    }
 }
 
-let objeto = creadorClases(
-    class {
-        constructor() {
-            this.nombre = undefined;
-        }
+let persona = Persona.crear("John");
 
-        saludar() {
-            console.log("Hola");
-        }
-    }
-);
+console.log(persona);
 
-objeto.saludar();
+persona.decirNombre();
 
-class Cuadrado {
-    constructor(lado) {
-        this.lado = lado;
-    }
-
-    getArea() {
-        return this.lado * this.lado;
-    }
-}
-
-function imprimirCuadrado(cuadrado) {
-    if (!(cuadrado instanceof Cuadrado)) {
-        console.error("El parámetro enviado no es un cuadrado");
-        return;
-    }
-
-    console.log(cuadrado.getArea());
-}
-
-let mesa = new Cuadrado(10);
-imprimirCuadrado(mesa);
-imprimirCuadrado("123"); // Da error porque no es de tipo Cuadrado
+persona.gritarNombre();
