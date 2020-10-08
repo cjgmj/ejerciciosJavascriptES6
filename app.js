@@ -130,30 +130,67 @@
 // **************** Métodos estáticos y métodos computados ****************
 // Los métodos computados son aquellos que su nombre se puede definir a través
 // de una variable
-let nombreMetodo = "gritarNombre";
+// let nombreMetodo = "gritarNombre";
 
-class Persona {
-    constructor(nombre) {
-        this.nombre = nombre;
+// class Persona {
+//     constructor(nombre) {
+//         this.nombre = nombre;
+//     }
+
+//     decirNombre() {
+//         console.log(this.nombre);
+//     }
+
+//     [nombreMetodo]() {
+//         console.log(this.nombre.toUpperCase());
+//     }
+
+//     static crear(nombre) {
+//         return new Persona(nombre);
+//     }
+// }
+
+// let persona = Persona.crear("John");
+
+// console.log(persona);
+
+// persona.decirNombre();
+
+// persona.gritarNombre();
+
+// **************** Herencia de clases ****************
+class Rectangulo {
+    constructor(base, altura) {
+        this.base = base;
+        this.altura = altura;
     }
 
-    decirNombre() {
-        console.log(this.nombre);
-    }
-
-    [nombreMetodo]() {
-        console.log(this.nombre.toUpperCase());
-    }
-
-    static crear(nombre) {
-        return new Persona(nombre);
+    getArea() {
+        return this.base * this.altura;
     }
 }
 
-let persona = Persona.crear("John");
+let rectangulo = new Rectangulo(2, 3);
 
-console.log(persona);
+console.log(rectangulo.getArea());
 
-persona.decirNombre();
+class Cuadrado extends Rectangulo {
+    constructor(lado) {
+        super(lado, lado);
+        this.lado = lado;
+    }
 
-persona.gritarNombre();
+    // Sobrescribe la función del padre
+    getArea() {
+        // return "Cuadrado: " + (this.lado * this.lado);
+        // Llama a la función de la clase padre
+        return super.getArea();
+    }
+}
+
+let cuadrado = new Cuadrado(3);
+
+console.log(cuadrado.getArea());
+
+console.log(cuadrado instanceof Cuadrado);
+console.log(cuadrado instanceof Rectangulo);
