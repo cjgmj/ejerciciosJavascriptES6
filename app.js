@@ -30,13 +30,27 @@
 // **************** Inicializaciones de los mapas ****************
 // Para inicializar un mapa recibe un array compuesto por otros arrays con los clave-valor
 // que se insertarán en el mapa
+// let mapa = new Map([
+//     ["nombre", "John"],
+//     ["edad", 33],
+//     [null, undefined], // Esto sería una pareja válida
+//     [undefined, null] // Esto sería una pareja válida
+// ]);
+
+// console.log(mapa);
+// console.log(mapa.get(null));
+// console.log(mapa.get(undefined));
+
+// **************** ForEach en los Maps ****************
 let mapa = new Map([
     ["nombre", "John"],
-    ["edad", 33],
-    [null, undefined], // Esto sería una pareja válida
-    [undefined, null] // Esto sería una pareja válida
+    ["edad", 33]
 ]);
 
-console.log(mapa);
-console.log(mapa.get(null));
-console.log(mapa.get(undefined));
+// mapa.forEach(function(valor, key, map) {
+//     console.log(key, valor);
+//     console.log(map);
+// });
+
+// No es necesario poner todos los valores, por ejemplo no ponemos el map
+mapa.forEach((valor, key) => console.log(key, valor));
