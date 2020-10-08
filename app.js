@@ -70,17 +70,59 @@
 
 // otraFuncion();
 
-let Persona = class {
-    constructor() {
-        this.nombre = "";
+// let Persona = class {
+//     constructor() {
+//         this.nombre = "";
+//     }
+
+//     decirNombre() {
+//         console.log("Hola mundo");
+//     }
+// };
+
+// let persona = new Persona();
+
+// console.log(typeof persona);
+// console.log(persona instanceof Persona);
+
+// **************** Clases como parámetros ****************
+function creadorClases(definicionClase) {
+    return new definicionClase();
+}
+
+let objeto = creadorClases(
+    class {
+        constructor() {
+            this.nombre = undefined;
+        }
+
+        saludar() {
+            console.log("Hola");
+        }
+    }
+);
+
+objeto.saludar();
+
+class Cuadrado {
+    constructor(lado) {
+        this.lado = lado;
     }
 
-    decirNombre() {
-        console.log("Hola mundo");
+    getArea() {
+        return this.lado * this.lado;
     }
-};
+}
 
-let persona = new Persona();
+function imprimirCuadrado(cuadrado) {
+    if (!(cuadrado instanceof Cuadrado)) {
+        console.error("El parámetro enviado no es un cuadrado");
+        return;
+    }
 
-console.log(typeof persona);
-console.log(persona instanceof Persona);
+    console.log(cuadrado.getArea());
+}
+
+let mesa = new Cuadrado(10);
+imprimirCuadrado(mesa);
+imprimirCuadrado("123"); // Da error porque no es de tipo Cuadrado
