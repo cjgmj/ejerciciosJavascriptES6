@@ -42,15 +42,61 @@
 // console.log(mapa.get(undefined));
 
 // **************** ForEach en los Maps ****************
-let mapa = new Map([
+// let mapa = new Map([
+//     ["nombre", "John"],
+//     ["edad", 33]
+// ]);
+
+// // mapa.forEach(function(valor, key, map) {
+// //     console.log(key, valor);
+// //     console.log(map);
+// // });
+
+// // No es necesario poner todos los valores, por ejemplo no ponemos el map
+// mapa.forEach((valor, key) => console.log(key, valor));
+
+// **************** Ciclo for-of ****************
+// let numeros = [100, 20, 30, 50, 200];
+
+// for (let i = 0; i < numeros.length; i++) {
+//     console.log(numeros[i]);
+// }
+
+// for (let i in numeros) {
+//     console.log(numeros[i]);
+// }
+
+// for (let numero of numeros) {
+//     console.log(numero);
+// }
+
+// Array
+// let personas = [{ "nombre": "John", "edad": 33 }, { "nombre": "Jane", "edad": 35 }, { "nombre": "Linus", "edad": 47 }, { "nombre": "Joe", "edad": 25 }]
+
+// for (let persona of personas) {
+//     console.log(persona.nombre, persona.edad);
+//     console.log(persona);
+// }
+
+// Set
+// let personas = new Set();
+
+// personas.add({ "nombre": "John", "edad": 33 });
+// personas.add({ "nombre": "Jane", "edad": 35 });
+// personas.add({ "nombre": "Linus", "edad": 47 });
+// personas.add({ "nombre": "Joe", "edad": 25 });
+
+// for (let persona of personas) {
+//     console.log(persona.nombre, persona.edad);
+//     console.log(persona);
+// }
+
+// Map
+let personas = new Map([
     ["nombre", "John"],
-    ["edad", 33]
+    ["apellido", "Doe"],
 ]);
 
-// mapa.forEach(function(valor, key, map) {
-//     console.log(key, valor);
-//     console.log(map);
-// });
-
-// No es necesario poner todos los valores, por ejemplo no ponemos el map
-mapa.forEach((valor, key) => console.log(key, valor));
+for (let persona of personas) {
+    console.log(persona);
+}
